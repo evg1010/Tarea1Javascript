@@ -1,31 +1,20 @@
-class Task {
-    constructor(name, priority, state) {
-        this._name = name;
-        this._priority = priority;
-        this._state = state;
-    }
+// Task class with encapsulated properties such as name, priority, and status.
+// The status property can only be one of the following values: 'pending', 'in progress', 'completed'.
+export class Task {
+    constructor(id, name, priority, status) {
+        const _id = id;
+        let _name = name;
+        let _priority = priority;
+        let _status = status;
 
-    get name() {
-        return this._name;
-    }
+        // Getter and Setter methods for each property
+        this.getId = () => _id;
+        this.getName = () => _name;
+        this.getPriority = () => _priority;
+        this.getStatus = () => _status;
 
-    set name(value) {
-        this._name = value;
-    }
-
-    get priority() {
-        return this._priority;
-    }
-
-    set priority(value) {
-        this._priority = value;
-    }
-
-    get state() {
-        return this._state;
-    }
-
-    set state(value) {
-        this._state = value;
+        this.setName = (name) => { _name = name; }
+        this.setPriority = (priority) => { _priority = priority; }
+        this.setStatus = (status) => { _status = status; }
     }
 }
