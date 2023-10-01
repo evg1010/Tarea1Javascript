@@ -34,15 +34,12 @@ export class Project {
             _tasks.delete(id);
         }
 
-        this.showPendingTasks = function () {
-            // List all pending tasks
+        this.getPendingTasks = function () {
+            // List all pending tasks and sort them by priority
             let pendingTasks = Array.from(_tasks.values()).filter(task => task.getStatus() === 'pending');
-
-            // Sort by priority
             pendingTasks.sort((a, b) => b.getPriority() - a.getPriority());
 
-            // Log each pending task
-            pendingTasks.forEach(task => console.log(`Task: ${task.getName()}, Priority: ${task.getPriority()}`));
+            return pendingTasks;
         }
     }
 }
